@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -24,5 +25,7 @@ export const Navigation = () => {
             <Link to="/home">Home</Link>
             <Link to="/movies">Movies</Link>
         </Nav>
+        <Outlet />
+        {/* <Toaster/> */}
     </Wrapper>
     )};

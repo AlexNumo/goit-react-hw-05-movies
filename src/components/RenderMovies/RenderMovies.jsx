@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import FetchAPI from "../Services/FetchAPI";
 import TrendingToday from "components/TrendingToday/TrendingToday";
-import { Navigation } from "Pages/Navigation/Navigation";
 
 
 const TrendingRender = () =>{
@@ -23,7 +22,6 @@ const TrendingRender = () =>{
 ;
     return (
         <div>
-            <Navigation/>
             <h2>Trending today</h2>
             <TrendingToday showMovies={hits}/>
         </div>

@@ -64,7 +64,6 @@ const SearchMovies = () => {
                     <span>Search</span>
                 </button>
             </form>
-
         </div>
     )}
 

@@ -6,7 +6,7 @@ const TrendingToday = ({showMovies}) =>{
             {showMovies.map(({id, title}) => (
                 <li
                     key={id}>
-                        <Link to='/title' >{title}</Link>
+                        <Link to={`/movies/${id}`}>{title}</Link>
                         </li>
             ))}
         </ul>
