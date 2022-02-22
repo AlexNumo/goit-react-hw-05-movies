@@ -1,6 +1,7 @@
 import {ImSearch} from 'react-icons/im';
 import { useState, useEffect } from 'react';
-import fetchAPI from 'components/Services/FetchAPI';
+// import fetchAPI from 'components/Services/FetchAPI';
+import MovieInfo from 'components/Movieinfo/Movieinfo';
 
 const SearchMovies = () => {
     const [search, setSearch] = useState('');
@@ -10,25 +11,41 @@ const SearchMovies = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
 
+    function fetchAPI() {
+    const API_KEY_V3 = '978764fb47932f9f815a23ce8e89a8be';
+    const defaultPath = `https://api.themoviedb.org/3/search/movie`;
+    
+    return fetch(`${defaultPath}?api_key=${API_KEY_V3}&language=en-US&query=${search}&page=1&include_adult=false`)
 
-    useEffect(() =>{
-        if( !searchObject) return;
+    .then(response => {
+        if(response.ok) {
+            return response.json();
+            // return console.log(response.json());
+        }
+        return Promise.reject(
+            new Error('Somes wrong'))
+    })
+    };
+    // fetchAPI();
 
-        setIsLoading(true)
+    useEffect(() => {
+        if (!search) return;
 
-        fetchAPI(searchObject, currentPage)
-            .then(({hits}) => {
-                const images = hits.map(({webformatURL, id, tags, largeImageURL}) => ({
-                    webformatURL, id, tags, largeImageURL
+        // setIsLoading(true)
+
+        fetchAPI()
+            .then(({ results }) => {
+                const moviesList = results.map(({ id, title }) => ({
+                    id, title
                 }))
-                if(hits.length === 0) {
-                    return Promise.reject(new Error("Проверьте ввод запроса"))
+                if (results.length === 0) {
+                    return Promise.reject(new Error("Check your enter"))
                 }
-                setHits((state) => [...state, ...images])
+                setHits((state) => [...state, ...moviesList])
             })
             .catch(error => setError(error))
             .finally(() => setIsLoading(false))
-    }, [searchObject, currentPage])
+    }, [searchObject]);
 
     const handleFormSubmit = query => {
         setSearchObject(query)
@@ -47,8 +64,12 @@ const SearchMovies = () => {
             return alert('Please entry')
         }
         handleFormSubmit(search)
-        setSearch('')
+        // setSearch('')
     }
+
+    console.log("hits: ", hits);
+    console.log("search: ", search);
+    console.log("searchObject: ", searchObject);
 
     return(
         <div>
@@ -64,6 +85,7 @@ const SearchMovies = () => {
                     <span>Search</span>
                 </button>
             </form>
+            <MovieInfo hits={hits} searchObject={searchObject}/>
         </div>
     )}
 

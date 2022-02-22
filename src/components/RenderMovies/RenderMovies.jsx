@@ -6,7 +6,7 @@ import TrendingToday from "components/TrendingToday/TrendingToday";
 const TrendingRender = () =>{
     const [hits, setHits] = useState([]);
     const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         FetchAPI()
