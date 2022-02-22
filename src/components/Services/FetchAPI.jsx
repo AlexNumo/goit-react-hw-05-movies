@@ -3,39 +3,39 @@
 // /movies/get-movie-details запрос полной информации о фильме для страницы кинофильма.
 // /movies/get-movie-credits запрос информации о актёрском составе для страницы кинофильма.
 // /movies/get-movie-reviews запрос обзоров для страницы кинофильма.
+import axios from 'axios';
 
-function fetchAPI() {
-    const API_KEY_V3 = '978764fb47932f9f815a23ce8e89a8be';
-    const API_KEY_V4 = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5Nzg3NjRmYjQ3OTMyZjlmODE1YTIzY2U4ZTg5YThiZSIsInN1YiI6IjYyMGY5MDhkMWYwMjc1MDA2YTY1YzQ3NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x5M_87tbuSHaRtltHOPO9-Q1KPzwFZAKAa1ja2RRxfU';
-    const query = 'popular';
-    const defaultPath = `https://api.themoviedb.org/3/movie`;
-    
-    return fetch(`${defaultPath}/${query}?api_key=${API_KEY_V3}&language=en-US&page=1`)
+const defaultPath = `https://api.themoviedb.org/3/`;
+const API_KEY_V3 = '978764fb47932f9f815a23ce8e89a8be';
+axios.defaults.baseURL = `${defaultPath}`;
 
-    .then(response => {
-        if(response.ok) {
-            return response.json();
-        }
-        return Promise.reject(
-            new Error('Somes wrong'))
-    })
+
+export const getPopular = async () =>{
+    const response = await axios.get(`movie/popular/?api_key=${API_KEY_V3}&language=en-US&page=1`);
+    return response.data;
+    // return console.log(response.data);
 };
 
-export default fetchAPI;
+export const getSearch = async ({search}) =>{
+    const response = await axios.get(`search/movie/?api_key=${API_KEY_V3}&language=en-US&query=${search}&page=1&include_adult=false`);
+    return response.data;
+    // return console.log(response.data);
+};
 
-// results: Array(20)
-// 0:
-// adult: false
-// backdrop_path: "/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg"
-// genre_ids: (3) [28, 12, 878]
-// id: 634649
-// original_language: "en"
-// original_title: "Spider-Man: No Way Home"
-// overview: "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man."
-// popularity: 9805.303
-// poster_path: "/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg"
-// release_date: "2021-12-15"
-// title: "Spider-Man: No Way Home"
-// video: false
-// vote_average: 8.3
-// vote_count: 8089
+export const getMovieById = async (id) =>{
+    const response = await axios.get(`movie/${id}?api_key=${API_KEY_V3}&language=en-US`);
+    return response.data;
+    // return console.log(response.data.budget);
+};
+
+export const getMovieCast = async (id) => {
+    const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY_V3}&language=en-US`)
+    // return console.log(response.data.cast);
+    return response.data.cast;
+  }
+
+export const getReviews = async (id) => {
+const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY_V3}&language=en-US`)
+// return console.log(response.data.results);
+return response.data.results;
+}

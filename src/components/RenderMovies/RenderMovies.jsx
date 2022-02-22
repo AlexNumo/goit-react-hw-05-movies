@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import FetchAPI from "../Services/FetchAPI";
+import {getPopular} from "../Services/FetchAPI";
 import TrendingToday from "components/TrendingToday/TrendingToday";
 
 
@@ -9,7 +9,7 @@ const TrendingRender = () =>{
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        FetchAPI()
+        getPopular()
         .then(({results}) => {
             const moviesList = results.map(({title, id}) => ({
                 title, id
@@ -18,8 +18,10 @@ const TrendingRender = () =>{
         })
         .catch(error => setError(error))
         .finally(() => setIsLoading(false))
-    }, [])
-;
+    }, []);
+
+    // console.log(hits);
+
     return (
         <div>
             <h2>Trending today</h2>

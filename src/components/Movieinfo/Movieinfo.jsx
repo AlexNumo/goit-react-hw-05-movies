@@ -1,13 +1,21 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-const MovieInfo = ({ hits, searchObject }) => {
+const MovieLink = styled(NavLink)`
+    display: flex;
+    padding: 5px 5px 5px 5px;
+      &.active {
+    color: tomato;
+  }
+`
+const MovieInfo = ({ hits }) => {
     return (
         <div>
             <ul>
                 {hits.map(({id, title}) => (
                     <li
                         key={id}>
-                        <Link to={`/movies?query=${searchObject}`}>{title}</Link>
+                        <MovieLink to={`/movies/${id}`}>{title}</MovieLink>
                     </li>
             ))}
         </ul>

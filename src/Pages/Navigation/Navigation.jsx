@@ -2,7 +2,6 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import styled from 'styled-components';
 // import { Controls } from 'components/Goback/Goback';
-import { PreviewPage } from 'Pages/PreviewPage/PreviewPage';
 
 const Nav = styled.nav`
   display: flex;
@@ -26,10 +25,7 @@ export const Navigation = () => {
         <Nav>
             <Link to="/home">Home</Link>
           <Link to="/movies">Movies</Link>
-          {/* <Controls/> */}
-          {/* <PreviewPage/> */}
         </Nav>
         <Outlet />
-        {/* <Toaster/> */}
     </Wrapper>
     )};
