@@ -2,7 +2,6 @@ import {ImSearch} from 'react-icons/im';
 import { useState, useEffect } from 'react';
 import MovieInfo from 'components/Movieinfo/Movieinfo';
 import {getSearch} from '../Services/FetchAPI';
-import { Link } from 'react-router-dom';
 
 const SearchMovies = () => {
     const [search, setSearch] = useState('');
@@ -50,13 +49,6 @@ const SearchMovies = () => {
         handleFormSubmit(search)
     }
 
-    // console.log("hits: ", hits);
-    // console.log("search: ", search);
-    // console.log("searchObject: ", searchObject);
-    // const Linkos = () => {
-    //     <Link to={`/movies?query=${searchObject}`}/>
-    // }
-
     return(
         <div>
             <form onSubmit={handleSubmit} className="form">
@@ -68,12 +60,9 @@ const SearchMovies = () => {
                         onChange={handleNameChange}/>
                 
                     <button type="submit" className="button">
-                    {/* <Link to={`?query=${searchObject}`}> */}
                     <ImSearch style={{marginRight: 8}}/>
                     <span>Search</span>
-                    {/* </Link> */}
                     </button>
-                
             </form>
             <MovieInfo hits={hits}/>
         </div>

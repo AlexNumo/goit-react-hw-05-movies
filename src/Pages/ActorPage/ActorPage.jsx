@@ -4,11 +4,8 @@ import {useParams} from "react-router-dom";
 import {toast} from "react-hot-toast";
 import {Cast} from "../../components/Cast/Cast";
 
-
 export const ActorPage = () => {
-
   const {itemId} = useParams()
-
   const [item, setItem] = useState(null)
   useEffect(() => {
     async function fetchItem(){
@@ -21,7 +18,6 @@ export const ActorPage = () => {
     }
     fetchItem()
   },[itemId])
-
 
   return (
     <>

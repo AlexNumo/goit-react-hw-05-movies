@@ -21,11 +21,8 @@ export const ReviewPage = () => {
   },[itemId])
 
   return (
-
     <>
       {item && <Reviews items={item}/>}
     </>
   )
-
-
 }

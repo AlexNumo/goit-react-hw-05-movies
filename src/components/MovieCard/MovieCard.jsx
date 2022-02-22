@@ -1,13 +1,5 @@
 export const MovieCard = ({item}) => {
     const releaseYear = new Date(item.release_date).getFullYear()
-    // console.log(releaseYear);
-    // const maybeError = () =>{
-    //   if(item.poster_path === null){
-    //     return "Oops...not image yet"
-    //   }
-    //   return;
-    // }
-    // const er = "Oops...not image yet";
       return (
       <article>
         <h2>{item.title} <span>{releaseYear}</span></h2>
