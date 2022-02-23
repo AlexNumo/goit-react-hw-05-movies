@@ -2,6 +2,13 @@ import {ImSearch} from 'react-icons/im';
 import { useState, useEffect } from 'react';
 import MovieInfo from 'components/Movieinfo/Movieinfo';
 import {getSearch} from '../Services/FetchAPI';
+import {Link} from "react-router-dom";
+import styled from 'styled-components';
+
+const LinkButtonStyle = styled.button`
+    width: 100px;
+    height: 25px;
+`
 
 const SearchMovies = () => {
     const [search, setSearch] = useState('');
@@ -28,7 +35,7 @@ const SearchMovies = () => {
             })
             .catch(error => setError(error))
             .finally(() => setIsLoading(false))
-    }, [searchObject]);
+    }, [search]);
 
     const handleFormSubmit = query => {
         setSearchObject(query)
@@ -58,11 +65,15 @@ const SearchMovies = () => {
                         type="text"
                         placeholder="Search movies"
                         onChange={handleNameChange}/>
-                
-                    <button type="submit" className="button">
-                    <ImSearch style={{marginRight: 8}}/>
-                    <span>Search</span>
-                    </button>
+                    {/* <LinkButtonStyle type="submit" className="button"> */}
+                        <Link to={{
+                            search: `?query=${search}`,
+                            state: {search}
+                        }}>
+                        <ImSearch />
+                        <span>Search</span>
+                        </Link>
+                    {/* </LinkButtonStyle> */}
             </form>
             <MovieInfo hits={hits}/>
         </div>

@@ -6,7 +6,7 @@ axios.defaults.baseURL = `${defaultPath}`;
 
 
 export const getPopular = async () =>{
-    const response = await axios.get(`movie/popular/?api_key=${API_KEY_V3}&language=en-US&page=1`);
+    const response = await axios.get(`trending/all/day?api_key=${API_KEY_V3}`);
     return response.data;
 };
 

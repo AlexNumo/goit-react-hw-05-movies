@@ -20,8 +20,6 @@ const TrendingRender = () =>{
         .finally(() => setIsLoading(false))
     }, []);
 
-    // console.log(hits);
-
     return (
         <div>
             <h2>Trending today</h2>

@@ -1,8 +1,16 @@
-import {Link, useParams, Outlet} from "react-router-dom";
+import {NavLink, useParams, Outlet} from "react-router-dom";
 import {getMovieById} from "../../components/Services/FetchAPI";
 import {useEffect, useState} from "react";
 import {MovieCard} from "../../components/MovieCard/MovieCard";
 import {toast} from "react-hot-toast";
+import styled from 'styled-components';
+// import { lazy, Suspense} from 'react';
+
+// const MovieCard = lazy(() => import('../../components/MovieCard/MovieCard.jsx' /* webpackChunkName: "MovieCard"*/));
+const LinkStyle = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+`
 
 export const PreviewPage = () => {
   const {itemId} = useParams()
@@ -21,10 +29,10 @@ export const PreviewPage = () => {
 
   return (
     <div>
-      <Link to='/'>Go Back</Link>
+      <NavLink to='/'>Go Back</NavLink>
       {item && <MovieCard item={item}/>}
-      <Link to='cast'>Cast</Link>
-      <Link to='reviews'>Reviews</Link>
+      <LinkStyle to='cast'>Cast</LinkStyle>
+      <LinkStyle to='reviews'>Reviews</LinkStyle>
       <Outlet/>
     </div>)
 };

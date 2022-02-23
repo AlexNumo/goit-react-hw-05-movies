@@ -15,7 +15,7 @@ const TrendingToday = ({showMovies}) =>{
                 <li
                     key={id}>
                     <MovieLink to={`/movies/${id}`}>{title}</MovieLink>
-                        </li>
+                </li>
             ))}
         </ul>
     )

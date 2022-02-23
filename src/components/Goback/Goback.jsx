@@ -5,8 +5,6 @@
 //     const [searchParams, setSearchParams] = useSearchParams();
 //   const currentItemPos = Number(searchParams.get('item'));
 
-//   console.log(currentItemPos);
-
 //   const changeIndex = value => {
 //     setSearchParams({ item: currentItemPos + value });
 //   };
@@ -17,6 +15,7 @@
 //     }
 //   }, [currentItemPos, setSearchParams]);
 
+//   console.log(searchParams.get('item'));
 // //   const totalItems = items.length;
 // //   const currentItem = items[currentItemPos - 1];
 // //   const showPlaceholder = !loading && totalItems === 0;

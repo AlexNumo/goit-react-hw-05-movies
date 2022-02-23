@@ -4,7 +4,9 @@ import { App } from 'components/App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
+// import { lazy} from 'react';
 
+// const App = lazy(() => import('components/App.jsx' /* webpackChunkName: "App"*/));
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
