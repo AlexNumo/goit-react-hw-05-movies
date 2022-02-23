@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import MovieInfo from 'components/Movieinfo/Movieinfo';
 import {getSearch} from '../Services/FetchAPI';
 import {Link} from "react-router-dom";
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 // const LinkButtonStyle = styled.button`
 //     width: 100px;
