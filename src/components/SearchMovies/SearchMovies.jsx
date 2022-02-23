@@ -5,24 +5,18 @@ import {getSearch} from '../Services/FetchAPI';
 import {Link} from "react-router-dom";
 import styled from 'styled-components';
 
-const LinkButtonStyle = styled.button`
-    width: 100px;
-    height: 25px;
-`
+// const LinkButtonStyle = styled.button`
+//     width: 100px;
+//     height: 25px;
+// `
 
 const SearchMovies = () => {
     const [search, setSearch] = useState('');
-    const [searchObject, setSearchObject] = useState('');
+    // const [searchObject, setSearchObject] = useState('');
     const [hits, setHits] = useState([]);
-    const [error, setError] = useState(null);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if (!search) return;
-
-        setIsLoading(true)
-
         getSearch({search})
             .then(({ results }) => {
                 const moviesList = results.map(({ id, title }) => ({
@@ -33,15 +27,11 @@ const SearchMovies = () => {
                 }
                 setHits((state) => [...state, ...moviesList])
             })
-            .catch(error => setError(error))
-            .finally(() => setIsLoading(false))
     }, [search]);
 
     const handleFormSubmit = query => {
-        setSearchObject(query)
-        setCurrentPage(1)
+        // setSearchObject(query)
         setHits([])
-        setError(null)
     }
 
     const handleNameChange = e => {
