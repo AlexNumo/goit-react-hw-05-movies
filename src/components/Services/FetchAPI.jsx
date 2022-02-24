@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const defaultPath = `https://api.themoviedb.org/3/`;
+const defaultPath = `http://api.themoviedb.org/3/`;
 const API_KEY_V3 = '978764fb47932f9f815a23ce8e89a8be';
 axios.defaults.baseURL = `${defaultPath}`;
 
