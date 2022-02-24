@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 
 const SearchMovies = () => {
     const [search, setSearch] = useState('');
-    // const [searchObject, setSearchObject] = useState('');
+    const [searchObject, setSearchObject] = useState('');
     const [hits, setHits] = useState([]);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const SearchMovies = () => {
     }, [search]);
 
     const handleFormSubmit = query => {
-        // setSearchObject(query)
+        setSearchObject(query)
         setHits([])
     }
 
@@ -45,6 +45,7 @@ const SearchMovies = () => {
         }
         handleFormSubmit(search)
     }
+    console.log(searchObject)
 
     return(
         <div>
