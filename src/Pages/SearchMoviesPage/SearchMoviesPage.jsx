@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import {getFoundMovies} from "../../Services/FetchAPI";
-import MovieInfo from "../../components/MovieInfo/MovieInfo";
+import MovieInfo from "../../components/Movieinfo/Movieinfo";
 import {SearchMovies} from "../../components/SearchMovies/SearchMovies";
 
 
