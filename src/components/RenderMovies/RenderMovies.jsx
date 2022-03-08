@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {getPopular} from "../Services/FetchAPI";
+import {getPopular} from "../../Services/FetchAPI";
 import TrendingToday from "components/TrendingToday/TrendingToday";
 
 

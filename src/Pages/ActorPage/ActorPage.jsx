@@ -1,4 +1,4 @@
-import {getMovieCast} from "../../components/Services/FetchAPI";
+import {getMovieCast} from "../../Services/FetchAPI";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {toast} from "react-hot-toast";

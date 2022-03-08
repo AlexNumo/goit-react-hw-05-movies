@@ -1,12 +1,10 @@
 import {NavLink, useParams, Outlet} from "react-router-dom";
-import {getMovieById} from "../../components/Services/FetchAPI";
+import {getMovieById} from "../../Services/FetchAPI";
 import {useEffect, useState} from "react";
 import {MovieCard} from "../../components/MovieCard/MovieCard";
 import {toast} from "react-hot-toast";
 import styled from 'styled-components';
-// import { lazy, Suspense} from 'react';
 
-// const MovieCard = lazy(() => import('../../components/MovieCard/MovieCard.jsx' /* webpackChunkName: "MovieCard"*/));
 const LinkStyle = styled(NavLink)`
   display: flex;
   flex-direction: column;

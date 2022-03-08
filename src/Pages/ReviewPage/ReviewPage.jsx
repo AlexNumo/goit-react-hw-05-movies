@@ -1,4 +1,4 @@
-import {getReviews} from "../../components/Services/FetchAPI";
+import {getReviews} from "../../Services/FetchAPI";
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {Reviews} from "../../components/Reviews/Reviews";
