@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react";
 import {useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import {getFoundMovies} from "../../Services/FetchAPI";
-import {SearchMovies} from "../../components/SearchMovies/SearchMovies";
 import MovieInfo from "../../components/MovieInfo/MovieInfo";
+import {SearchMovies} from "../../components/SearchMovies/SearchMovies";
+
 
 
 const SearchMoviesPage = () => {
@@ -12,7 +13,7 @@ const SearchMoviesPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const search = searchParams.get('query')
+  const search = searchParams.get('query');
 
   useEffect(() => {
     if(query === '') {
