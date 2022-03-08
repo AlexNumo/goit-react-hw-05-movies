@@ -8,7 +8,7 @@ const MovieLink = styled(NavLink)`
     color: tomato;
   }
 `
-export const MovieInfo = ({ hits }) => {
+const MovieInfo = ({ hits }) => {
     return (
         <div>
             <ul>
@@ -22,3 +22,5 @@ export const MovieInfo = ({ hits }) => {
         </div>
     )
 }
+
+export default MovieInfo;
