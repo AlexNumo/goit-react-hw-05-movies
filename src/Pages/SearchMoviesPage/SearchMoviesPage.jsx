@@ -55,7 +55,6 @@ const SearchMoviesPage = () => {
     setQuery(searchQuery);
     navigate({...location, search: `query=${searchQuery}`})
   }
-  console.log(location)
 
   return (
     <>
