@@ -1,4 +1,4 @@
-import {Link, NavLink, useParams, Outlet, useLocation} from "react-router-dom";
+import { NavLink, useParams, Outlet, useNavigate} from "react-router-dom";
 import {getMovieById} from "../../Services/FetchAPI";
 import {useEffect, useState} from "react";
 import {MovieCard} from "../../components/MovieCard/MovieCard";
@@ -6,12 +6,16 @@ import {toast} from "react-hot-toast";
 
 export const PreviewPage = () => {
   const {itemId} = useParams();
-  const location = useLocation();
+  // const location = useLocation();
   const [item, setItem] = useState(null);
-  // let [searchParams, setSearchParams] = useSearchParams();
-  // let user = searchParams.get("id");
-  // // let sdv = setSearchParams({ id: 545});
-  // console.log(user);
+  const navigate = useNavigate();
+  // const [searchParams, setSearchParams] = useSearchParams();
+
+  // const search = setSearchParams.get('cast');
+
+  // console.log(search);
+
+  const goBack = () => navigate(-1);
 
   useEffect(() => {
     async function fetchItem(){
@@ -27,18 +31,21 @@ export const PreviewPage = () => {
 
   return (
     <div>
-      <Link to={location?.state?.from ?? '/'}>Go Back</Link>
+      {/* <Link to={location?.state?.from ?? '/'}>Go Back</Link> */}
+      <button onClick={goBack}>Go Back</button>
       {item && <MovieCard item={item}/>}
       <div>
         <p>Additional information</p>
         <ul>
           <li>
-            <NavLink to='cast' state={{ from: location?.state?.from ?? '/' }}>
+          {/* state={{ from: location?.state?.from ?? '/' }} */}
+            <NavLink to='cast' >
               Cast
             </NavLink>
           </li>
           <li>
-            <NavLink to='reviews' state={{ from: location?.state?.from ?? '/' }}>
+          {/* state={{ from: location?.state?.from ?? '/' }} */}
+            <NavLink to='reviews' >
               Reviews
             </NavLink>
           </li>

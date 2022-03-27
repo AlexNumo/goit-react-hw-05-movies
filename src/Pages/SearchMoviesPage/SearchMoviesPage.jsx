@@ -4,8 +4,6 @@ import {getFoundMovies} from "../../Services/FetchAPI";
 import MovieInfo from "../../components/Movieinfo/Movieinfo";
 import {SearchMovies} from "../../components/SearchMovies/SearchMovies";
 
-
-
 const SearchMoviesPage = () => {
 
   const [query, setQuery] = useState('');
