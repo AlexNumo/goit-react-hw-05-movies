@@ -23,7 +23,6 @@ export const SearchMovies = ({onSubmit}) => {
         setSearch('');
     };
 
-
     return(
         <div>
             <form onSubmit={handleSubmit} className="form">

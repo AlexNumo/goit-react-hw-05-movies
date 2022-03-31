@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {getPopular} from "../../Services/FetchAPI";
 import TrendingToday from "components/TrendingToday/TrendingToday";
 
-
 const TrendingRender = () =>{
     const [hits, setHits] = useState([]);
 
